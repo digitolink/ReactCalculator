@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
+import History from './components/history/History.jsx';
+
 
 function App() {
-  const [ firstNumber, setFirstNumber ] = useState(null);
-  const [ secondNumber, setSecondNumber ] = useState(null);
-  const [ result, setResult ] = useState(null);
-  const  memory = useRef(null);
+  const [ firstNumber, setFirstNumber ] = useState("");
+  const [ secondNumber, setSecondNumber ] = useState("");
+  const [ result, setResult ] = useState("");
+  const  memory = useRef(0);
+  const [ resultHistory, setResultHistory ] = useState([]);
 
   function changeFirstNumberHandler (event) {
     setFirstNumber(event.target.value);
@@ -16,6 +19,7 @@ function App() {
   }
 
   function addHandler (event){
+    setResultHistory([...resultHistory, parseFloat(firstNumber)+parseFloat(secondNumber)])
     setResult(parseFloat(firstNumber)+parseFloat(secondNumber));
   }
   function substractionHandler (event){
@@ -64,7 +68,7 @@ function App() {
       <input type="button" value={"C"} onClick={deleteHandler}/>
       <input type="button" value={"M+"} onClick={memoryHandler}/>
       <input type="button" value={"MR"} onClick={copyHandler}/>
-      
+      <History results={resultHistory}/>
     </>
   );
 }
