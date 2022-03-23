@@ -19,7 +19,7 @@ function App() {
   }
 
   function addHandler (event){
-    setResultHistory([...resultHistory, parseFloat(firstNumber)+parseFloat(secondNumber)])
+    //setResultHistory([...resultHistory, parseFloat(firstNumber)+parseFloat(secondNumber)])
     setResult(parseFloat(firstNumber)+parseFloat(secondNumber));
   }
   function substractionHandler (event){
@@ -51,7 +51,9 @@ function App() {
     ()=>{
       console.log("firstNumber state:", firstNumber);
       console.log("secondNumber state:", secondNumber);
-    }
+      if (result!=null)
+        setResultHistory([...resultHistory,result]);
+    }, [result]
   )
 
   return (
