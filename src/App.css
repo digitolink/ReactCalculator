@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.cuadricula{
+  display:grid;
+  grid-template-columns: 15% 10%;
+}
+
+.primera-columna{
+  
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+}
+
+.segunda-columna{
+
+  grid-column-start: 2;
+  grid-column-end: 3;
+}

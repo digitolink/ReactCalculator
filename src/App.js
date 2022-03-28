@@ -18,6 +18,12 @@ function App() {
     setSecondNumber(event.target.value);
   }
 
+  function marcarHandler(event){
+    
+    
+
+  }
+
   function addHandler (event){
     //setResultHistory([...resultHistory, parseFloat(firstNumber)+parseFloat(secondNumber)])
     setResult(parseFloat(firstNumber)+parseFloat(secondNumber));
@@ -59,18 +65,35 @@ function App() {
   return (
     <>
       <h1>Calculadora</h1>
-      <input type="text" value={firstNumber} onChange={changeFirstNumberHandler}/>
-      <br></br>
-      <input type="text" value={secondNumber} onChange={changeSecondNumberHandler}/>
-      <p>{result}</p>
-      <input type="button" value={"+"} onClick={addHandler}/>
-      <input type="button" value={"-"} onClick={substractionHandler}/>
-      <input type="button" value={"*"} onClick={multiplyHandler}/>
-      <input type="button" value={"/"} onClick={divideHandler}/>
-      <input type="button" value={"C"} onClick={deleteHandler}/>
-      <input type="button" value={"M+"} onClick={memoryHandler}/>
-      <input type="button" value={"MR"} onClick={copyHandler}/>
-      <History results={resultHistory}/>
+      <div class="cuadricula">
+      <section class="primera-columna">
+        <input type="text" value={firstNumber} onChange={changeFirstNumberHandler}/>
+        <br></br>
+        <input type="text" value={secondNumber} onChange={changeSecondNumberHandler}/>
+        <p>{result}</p>
+        <History results={resultHistory}/>      
+      </section>
+      <aside class="segunda-columna">
+        <input type="button" class="tecla" value={"0"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"1"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"2"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"3"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"4"} onClick={marcarHandler}/>      
+        <input type="button" class="tecla" value={"5"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"6"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"7"} onClick={marcarHandler}/>    
+        <input type="button" class="tecla" value={"8"} onClick={marcarHandler}/>
+        <input type="button" class="tecla" value={"9"} onClick={marcarHandler}/>
+
+        <input type="button" value={"+"} onClick={addHandler}/>
+        <input type="button" value={"-"} onClick={substractionHandler}/>
+        <input type="button" value={"*"} onClick={multiplyHandler}/>
+        <input type="button" value={"/"} onClick={divideHandler}/>
+        <input type="button" value={"C"} onClick={deleteHandler}/>
+        <input type="button" value={"M+"} onClick={memoryHandler}/>
+        <input type="button" value={"MR"} onClick={copyHandler}/>
+      </aside>
+      </div>
     </>
   );
 }
